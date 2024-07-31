@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>pydeck</title>
+        <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~8.8.*/dist/index.js'></script>
+    <style>
+    body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#deck-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+#deck-container canvas {
+  z-index: 1;
+  background: none;
+}
+    </style>
+  </head>
+  <body>
+    <div id="deck-container">
+    </div>
+  </body>
+  <script>
+    const container = document.getElementById('deck-container');
+    const jsonInput = {
+  "initialViewState": {
+    "bearing": -27.36,
+    "latitude": -32.800271894999995,
+    "longitude": -56.11771467,
+    "maxZoom": 15,
+    "minZoom": 5,
+    "pitch": 40.5,
+    "zoom": 6
+  },
+  "layers": [
+    {
+      "@@type": "ScatterplotLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "Cantidad": 11,
+          "Departamento": "Artigas",
+          "Latitud": -30.6170756,
+          "Longitud": -56.9373451
+        },
+        {
+          "Cantidad": 19,
+          "Departamento": "Asunci\u00f3n",
+          "Latitud": -25.2578344,
+          "Longitud": -57.5634917
+        },
+        {
+          "Cantidad": 35,
+          "Departamento": "Canelones",
+          "Latitud": -34.6222482,
+          "Longitud": -55.9903797
+        },
+        {
+          "Cantidad": 5,
+          "Departamento": "Cerro Largo",
+          "Latitud": -32.333333,
+          "Longitud": -54.333333
+        },
+        {
+          "Cantidad": 26,
+          "Departamento": "Colonia",
+          "Latitud": -34.1664516,
+          "Longitud": -57.4993268
+        },
+        {
+          "Cantidad": 12,
+          "Departamento": "Durazno",
+          "Latitud": -33.0833329,
+          "Longitud": -56.0833331
+        },
+        {
+          "Cantidad": 24,
+          "Departamento": "Flores",
+          "Latitud": -33.583333,
+          "Longitud": -56.833333
+        },
+        {
+          "Cantidad": 45,
+          "Departamento": "Florida",
+          "Latitud": -33.833333,
+          "Longitud": -55.916667
+        },
+        {
+          "Cantidad": 14,
+          "Departamento": "Lavalleja",
+          "Latitud": -33.9971964,
+          "Longitud": -54.9992242
+        },
+        {
+          "Cantidad": 33,
+          "Departamento": "Maldonado",
+          "Latitud": -34.9087162,
+          "Longitud": -54.9582718
+        },
+        {
+          "Cantidad": 1125,
+          "Departamento": "Montevideo",
+          "Latitud": -34.9058916,
+          "Longitud": -56.1913095
+        },
+        {
+          "Cantidad": 29,
+          "Departamento": "Paysand\u00fa",
+          "Latitud": -32.0,
+          "Longitud": -57.25
+        },
+        {
+          "Cantidad": 33,
+          "Departamento": "Rivera",
+          "Latitud": -31.5,
+          "Longitud": -55.25
+        },
+        {
+          "Cantidad": 8,
+          "Departamento": "Rocha",
+          "Latitud": -34.0,
+          "Longitud": -54.0
+        },
+        {
+          "Cantidad": 12,
+          "Departamento": "R\u00edo Negro",
+          "Latitud": -32.7257419,
+          "Longitud": -57.387578
+        },
+        {
+          "Cantidad": 74,
+          "Departamento": "Salto",
+          "Latitud": -31.3571565,
+          "Longitud": -57.004446
+        },
+        {
+          "Cantidad": 24,
+          "Departamento": "San Jos\u00e9",
+          "Latitud": -34.455,
+          "Longitud": -56.616944
+        },
+        {
+          "Cantidad": 28,
+          "Departamento": "Soriano",
+          "Latitud": -33.4921266,
+          "Longitud": -57.7893105
+        },
+        {
+          "Cantidad": 29,
+          "Departamento": "Tacuaremb\u00f3",
+          "Latitud": -32.166667,
+          "Longitud": -55.5
+        },
+        {
+          "Cantidad": 23,
+          "Departamento": "Treinta y Tres",
+          "Latitud": -33.0,
+          "Longitud": -54.25
+        }
+      ],
+      "getFillColor": [
+        180,
+        0,
+        200,
+        140
+      ],
+      "getPosition": "@@=[Longitud, Latitud]",
+      "getRadius": 10000,
+      "id": "8c19e524-2c82-46ac-b219-13101bff040f",
+      "pickable": true
+    }
+  ],
+  "mapProvider": "carto",
+  "mapStyle": "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
+  "views": [
+    {
+      "@@type": "MapView",
+      "controller": true
+    }
+  ]
+};
+    const tooltip = true;
+    const customLibraries = null;
+    const configuration = null;
+
+    const deckInstance = createDeck({
+                  container,
+      jsonInput,
+      tooltip,
+      customLibraries,
+      configuration
+    });
+
+  </script>
+</html>

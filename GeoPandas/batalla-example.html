@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>pydeck</title>
+        <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~8.8.*/dist/index.js'></script>
+    <style>
+    body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#deck-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+#deck-container canvas {
+  z-index: 1;
+  background: none;
+}
+    </style>
+  </head>
+  <body>
+    <div id="deck-container">
+    </div>
+  </body>
+  <script>
+    const container = document.getElementById('deck-container');
+    const jsonInput = {
+  "initialViewState": {
+    "bearing": -27.36,
+    "latitude": 48.35818831607143,
+    "longitude": 0.5557139214285715,
+    "maxZoom": 15,
+    "minZoom": 5,
+    "pitch": 40.5,
+    "zoom": 6
+  },
+  "layers": [
+    {
+      "@@type": "ScatterplotLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "Details": NaN,
+          "Location": "Cadzand",
+          "Name": "Battle of Cadzand",
+          "Number": 1,
+          "Unnamed: 0": 1,
+          "Victor": "England",
+          "Year": 1337,
+          "lat": 51.3692317,
+          "lon": 3.4077694
+        },
+        {
+          "Details": "The first naval battle using artillery, as the English ship\u00a0Christofer\u00a0had three cannons and one hand gun.",
+          "Location": "Arnemuiden",
+          "Name": "Battle of Arnemuiden",
+          "Number": 2,
+          "Unnamed: 0": 2,
+          "Victor": "France",
+          "Year": 1338,
+          "lat": 51.5011231,
+          "lon": 3.6759015
+        },
+        {
+          "Details": "24 June Edward III destroys the Franco-Genoese\u00a0fleet of\u00a0Philip VI of France\u00a0off the coast of\u00a0Flanders\u00a0ensuring England will not be invaded and that the majority of the war will be fought in France.",
+          "Location": "Sluys",
+          "Name": "Battle of Sluys",
+          "Number": 3,
+          "Unnamed: 0": 3,
+          "Victor": "England",
+          "Year": 1340,
+          "lat": 51.3253599,
+          "lon": 3.4876046
+        },
+        {
+          "Details": "The battle of Saint-Omer was the culmination of the northern fork of Edward's campaign and resulted in a tactical stalemate but forced a strategic withdrawal for the Anglo-Flemish forces.",
+          "Location": "Saint-Omer",
+          "Name": "Battle of Saint-Omer",
+          "Number": 4,
+          "Unnamed: 0": 4,
+          "Victor": "France",
+          "Year": 1340,
+          "lat": 50.750115,
+          "lon": 2.252208
+        },
+        {
+          "Details": "Tournai\u00a0was relieved.",
+          "Location": "Tournai",
+          "Name": "Siege of Tournai",
+          "Number": 5,
+          "Unnamed: 0": 5,
+          "Victor": "France",
+          "Year": 1340,
+          "lat": 50.6056475,
+          "lon": 3.3879338
+        },
+        {
+          "Details": NaN,
+          "Location": "Champtoceaux",
+          "Name": "Battle of Champtoceaux",
+          "Number": 6,
+          "Unnamed: 0": 6,
+          "Victor": "France",
+          "Year": 1341,
+          "lat": 47.337469,
+          "lon": -1.267219
+        },
+        {
+          "Details": NaN,
+          "Location": "Brest",
+          "Name": "Battle of Brest",
+          "Number": 7,
+          "Unnamed: 0": 7,
+          "Victor": "England",
+          "Year": 1342,
+          "lat": 48.390394,
+          "lon": -4.486076
+        },
+        {
+          "Details": NaN,
+          "Location": "Morlaix",
+          "Name": "Battle of Morlaix",
+          "Number": 8,
+          "Unnamed: 0": 8,
+          "Victor": "France",
+          "Year": 1342,
+          "lat": 48.577613,
+          "lon": -3.828228
+        },
+        {
+          "Details": "English surprise attack by Earl of Derby against a French army at Auberoche in Gascony.",
+          "Location": "Auberoche",
+          "Name": "Battle of Auberoche",
+          "Number": 9,
+          "Unnamed: 0": 9,
+          "Victor": "England",
+          "Year": 1345,
+          "lat": 45.1106798,
+          "lon": 0.9139375
+        },
+        {
+          "Details": NaN,
+          "Location": "Saint-Pol-de-Leon",
+          "Name": "Battle of Saint-Pol-de-L\u00e9on",
+          "Number": 10,
+          "Unnamed: 0": 10,
+          "Victor": "England",
+          "Year": 1346,
+          "lat": 48.685113,
+          "lon": -3.986533
+        },
+        {
+          "Details": "Caen\u00a0was sacked.",
+          "Location": "Caen",
+          "Name": "Battle of Caen",
+          "Number": 11,
+          "Unnamed: 0": 11,
+          "Victor": "England",
+          "Year": 1346,
+          "lat": 49.182863,
+          "lon": -0.370679
+        },
+        {
+          "Details": "English army successfully forded the river.",
+          "Location": "Abbeville",
+          "Name": "Battle of Blanchetaque",
+          "Number": 12,
+          "Unnamed: 0": 12,
+          "Victor": "England",
+          "Year": 1346,
+          "lat": 50.105467,
+          "lon": 1.836833
+        },
+        {
+          "Details": "26 August English longbowmen soundly defeat French cavalry near the river Somme in\u00a0Picardy.",
+          "Location": "Crecy-en-Ponthieu",
+          "Name": "Battle of Cr\u00e9cy",
+          "Number": 13,
+          "Unnamed: 0": 13,
+          "Victor": "England",
+          "Year": 1346,
+          "lat": 50.252468,
+          "lon": 1.882892
+        },
+        {
+          "Details": NaN,
+          "Location": "Neville's Cross",
+          "Name": "Battle of Neville's Cross",
+          "Number": 14,
+          "Unnamed: 0": 14,
+          "Victor": "England",
+          "Year": 1346,
+          "lat": 54.772013,
+          "lon": -1.594788
+        },
+        {
+          "Details": "On 1 August 1347, the city surrendered. Edward allowed the surviving citizenry to live, so, after providing them with some provisions, he allowed them to leave the city.",
+          "Location": "Calais",
+          "Name": "Siege of Calais",
+          "Number": 15,
+          "Unnamed: 0": 15,
+          "Victor": "England",
+          "Year": 1346,
+          "lat": 50.95129,
+          "lon": 1.858686
+        },
+        {
+          "Details": NaN,
+          "Location": "La Roche-Derrien",
+          "Name": "Battle of La Roche-Derrien",
+          "Number": 16,
+          "Unnamed: 0": 16,
+          "Victor": "England",
+          "Year": 1347,
+          "lat": 48.747357,
+          "lon": -3.263309
+        },
+        {
+          "Details": "English fleet defeats Castilian fleet in a close fight.",
+          "Location": "Winchelsea",
+          "Name": "Les Espagnols sur Mer",
+          "Number": 17,
+          "Unnamed: 0": 17,
+          "Victor": "England",
+          "Year": 1350,
+          "lat": 50.9249721,
+          "lon": 0.7095541
+        },
+        {
+          "Details": NaN,
+          "Location": "Ardres",
+          "Name": "Battle of Ardres",
+          "Number": 18,
+          "Unnamed: 0": 18,
+          "Victor": "France",
+          "Year": 1351,
+          "lat": 50.853961,
+          "lon": 1.976552
+        },
+        {
+          "Details": "Thirty French Knights from\u00a0Chateau Josselin\u00a0under\u00a0Beaumanoir\u00a0call out and defeat thirty English Knights under\u00a0Pembroke\u00a0and\u00a0Robert Bramborough.",
+          "Location": "Josselin",
+          "Name": "Combat of the Thirty",
+          "Number": 19,
+          "Unnamed: 0": 19,
+          "Victor": "France",
+          "Year": 1351,
+          "lat": 47.95383,
+          "lon": -2.546427
+        },
+        {
+          "Details": "10 August, small victory of Brittany-English forces against Brittany-French ones.",
+          "Location": "Mauron",
+          "Name": "Battle of Mauron",
+          "Number": 20,
+          "Unnamed: 0": 20,
+          "Victor": "England",
+          "Year": 1352,
+          "lat": 48.083875,
+          "lon": -2.283582
+        },
+        {
+          "Details": NaN,
+          "Location": "Saint-Jean-d\\'Angely",
+          "Name": "Capture of Saint-Jean-d'Ang\u00e9ly",
+          "Number": 21,
+          "Unnamed: 0": 21,
+          "Victor": "France",
+          "Year": 1353,
+          "lat": 45.944823,
+          "lon": -0.517763
+        },
+        {
+          "Details": NaN,
+          "Location": "Lusignan",
+          "Name": "Capture of Lusignan",
+          "Number": 22,
+          "Unnamed: 0": 22,
+          "Victor": "France",
+          "Year": 1353,
+          "lat": 46.43471,
+          "lon": 0.122455
+        },
+        {
+          "Details": NaN,
+          "Location": "Comborn",
+          "Name": "Battle of Comborn",
+          "Number": 23,
+          "Unnamed: 0": 23,
+          "Victor": "England",
+          "Year": 1353,
+          "lat": 45.32168,
+          "lon": 1.4711
+        },
+        {
+          "Details": "Easter 1354, victory of Brittany-French forces against English ones.",
+          "Location": "Montmuran",
+          "Name": "Battle of Montmuran",
+          "Number": 24,
+          "Unnamed: 0": 24,
+          "Victor": "France",
+          "Year": 1354,
+          "lat": 48.292896,
+          "lon": -1.860419
+        },
+        {
+          "Details": "Edward the Black Prince\u00a0captures King\u00a0John II of France, France plunged into chaos.",
+          "Location": "Poitiers",
+          "Name": "Battle of Poitiers",
+          "Number": 25,
+          "Unnamed: 0": 25,
+          "Victor": "England",
+          "Year": 1356,
+          "lat": 46.5784725,
+          "lon": 0.3380196
+        },
+        {
+          "Details": "16 May, near Houlbec-Cocherel, victory of Brittany-Burgundy-Gascony forces against Navarrese-English ones.",
+          "Location": "Cocherel",
+          "Name": "Battle of Cocherel",
+          "Number": 26,
+          "Unnamed: 0": 26,
+          "Victor": "France",
+          "Year": 1364,
+          "lat": 49.021652,
+          "lon": 3.100598
+        },
+        {
+          "Details": "29 September, end of\u00a0Breton War of Succession\u00a0Du Guesclin captured.",
+          "Location": "Auray",
+          "Name": "Battle of Auray",
+          "Number": 27,
+          "Unnamed: 0": 27,
+          "Victor": "England",
+          "Year": 1364,
+          "lat": 47.666491,
+          "lon": -2.983767
+        },
+        {
+          "Details": "Black Prince defeats a Castilian/French army at\u00a0N\u00e1jera\u00a0in Castile.",
+          "Location": "Navarette",
+          "Name": "Battle of N\u00e1jera (Navarette)",
+          "Number": 28,
+          "Unnamed: 0": 28,
+          "Victor": "England",
+          "Year": 1367,
+          "lat": 42.429811,
+          "lon": -2.5619607
+        },
+        {
+          "Details": "14 March, in Castille, Castilian/French army defeats a Castilian/Portuguese force.",
+          "Location": "Montiel",
+          "Name": "Battle of Montiel",
+          "Number": 29,
+          "Unnamed: 0": 29,
+          "Victor": "France",
+          "Year": 1369,
+          "lat": 38.6978849,
+          "lon": -2.866439
+        },
+        {
+          "Details": NaN,
+          "Location": "Limoges",
+          "Name": "Siege of Limoges",
+          "Number": 30,
+          "Unnamed: 0": 30,
+          "Victor": "England",
+          "Year": 1370,
+          "lat": 45.833619,
+          "lon": 1.261105
+        },
+        {
+          "Details": "4 December, the Brittany-French army defeats English forces.",
+          "Location": "Pontvallain",
+          "Name": "Battle of Pontvallain",
+          "Number": 31,
+          "Unnamed: 0": 31,
+          "Victor": "France",
+          "Year": 1370,
+          "lat": 47.751156,
+          "lon": 0.192151
+        },
+        {
+          "Details": "Castilian fleet defeats the English fleet, leading to loss of dominance at sea and French piracy and coastal raids.",
+          "Location": "La Rochelle",
+          "Name": "Battle of La Rochelle",
+          "Number": 32,
+          "Unnamed: 0": 32,
+          "Victor": "Castille",
+          "Year": 1372,
+          "lat": 46.160329,
+          "lon": -1.151139
+        },
+        {
+          "Details": NaN,
+          "Location": "Chiset, France",
+          "Name": "Battle of Chiset",
+          "Number": 33,
+          "Unnamed: 0": 33,
+          "Victor": "France",
+          "Year": 1372,
+          "lat": 44.7722732,
+          "lon": -0.6306044
+        },
+        {
+          "Details": "27 November, a French-Burgundy-Brittany-Norman army defeats a Flemish force twice more numerous.",
+          "Location": "Kortrijk, Belgium",
+          "Name": "Battle of Roosebeke",
+          "Number": 34,
+          "Unnamed: 0": 34,
+          "Victor": "France",
+          "Year": 1382,
+          "lat": 50.8194776,
+          "lon": 3.2577263
+        },
+        {
+          "Details": "Jean de Vienne, having successfully strengthened the French naval situation, lands an army in Scotland, but is forced to retreat.",
+          "Location": "Carlisle",
+          "Name": "French invasion of Scotland",
+          "Number": 35,
+          "Unnamed: 0": 35,
+          "Victor": "England",
+          "Year": 1385,
+          "lat": 54.892473,
+          "lon": -2.932931
+        },
+        {
+          "Details": NaN,
+          "Location": "Harfleur",
+          "Name": "Siege of Harfleur",
+          "Number": 36,
+          "Unnamed: 0": 36,
+          "Victor": "England",
+          "Year": 1415,
+          "lat": 49.511788,
+          "lon": 0.198015
+        },
+        {
+          "Details": "25 October, English longbowmen under\u00a0Henry V\u00a0defeat French under\u00a0Charles d'Albert.",
+          "Location": "Agincourt",
+          "Name": "Battle of Agincourt",
+          "Number": 37,
+          "Unnamed: 0": 37,
+          "Victor": "England",
+          "Year": 1415,
+          "lat": 48.73204,
+          "lon": 6.236217
+        },
+        {
+          "Details": "31 July\u00a0? 19 January 1419, Henry V of England re-gains a foothold in Normandy.",
+          "Location": "Rouen",
+          "Name": "Siege of Rouen",
+          "Number": 38,
+          "Unnamed: 0": 38,
+          "Victor": "England",
+          "Year": 1418,
+          "lat": 49.443232,
+          "lon": 1.099971
+        },
+        {
+          "Details": "Castilian fleet defeats the English fleet.",
+          "Location": "La Rochelle",
+          "Name": "Battle of La Rochelle",
+          "Number": 39,
+          "Unnamed: 0": 39,
+          "Victor": "Castille",
+          "Year": 1419,
+          "lat": 46.160329,
+          "lon": -1.151139
+        },
+        {
+          "Details": "3 March, the Battle resulted in the defeat of a large Franco-Scottish army.",
+          "Location": "Fresnay",
+          "Name": "Battle of Fresnay",
+          "Number": 40,
+          "Unnamed: 0": 40,
+          "Victor": "England",
+          "Year": 1420,
+          "lat": 48.314183,
+          "lon": 4.749351
+        },
+        {
+          "Details": "22 March, the French and Scottish forces of Charles VII commanded by the Earl of Buchan defeat an outmanoeuvred English force commanded by the Duke of Clarence.",
+          "Location": "Bauge",
+          "Name": "Battle of Baug\u00e9",
+          "Number": 41,
+          "Unnamed: 0": 41,
+          "Victor": "France",
+          "Year": 1421,
+          "lat": 47.5410397,
+          "lon": -0.1012308
+        },
+        {
+          "Details": NaN,
+          "Location": "Meaux",
+          "Name": "Siege of Meaux",
+          "Number": 42,
+          "Unnamed: 0": 42,
+          "Victor": "England",
+          "Year": 1422,
+          "lat": 48.9562018,
+          "lon": 2.8884657
+        },
+        {
+          "Details": "31 July, the French and Scottish army is defeated at Cravant on the banks of the river Yonne.",
+          "Location": "Cravant",
+          "Name": "Battle of Cravant",
+          "Number": 43,
+          "Unnamed: 0": 43,
+          "Victor": "England",
+          "Year": 1423,
+          "lat": 47.828069,
+          "lon": 1.573664
+        },
+        {
+          "Details": "26 September, Brittany-French forces annihilates an English army.",
+          "Location": "La Brossiniere",
+          "Name": "Battle of La Brossini\u00e8re",
+          "Number": 44,
+          "Unnamed: 0": 44,
+          "Victor": "France",
+          "Year": 1423,
+          "lat": 47.665261,
+          "lon": 2.142865
+        },
+        {
+          "Details": "17 August, the French and Scottish forces are decisively defeated.",
+          "Location": "Verneuil",
+          "Name": "Battle of Verneuil",
+          "Number": 45,
+          "Unnamed: 0": 45,
+          "Victor": "England",
+          "Year": 1424,
+          "lat": 49.1041219,
+          "lon": 3.671497
+        },
+        {
+          "Details": "6 March, a French besieging army under\u00a0Arthur de Richemont\u00a0dispersed by a small force under Sir Thomas Rempstone in Brittany.",
+          "Location": "Avranches",
+          "Name": "Battle of St. James",
+          "Number": 46,
+          "Unnamed: 0": 46,
+          "Victor": "England",
+          "Year": 1426,
+          "lat": 48.686843,
+          "lon": -1.36166
+        },
+        {
+          "Details": "12 October - 8 May 1429 English forces commanded by the Earl of Salisbury, the Earl of Suffolk, and Talbot (Earl of Shrewsbury) lay siege to Orleans, and are forced to withdraw after a relief army accompanied by\u00a0Joan of Arc\u00a0arrives at the city.",
+          "Location": "Orleans",
+          "Name": "Siege of Orl\u00e9ans",
+          "Number": 47,
+          "Unnamed: 0": 47,
+          "Victor": "France",
+          "Year": 1428,
+          "lat": 47.902964,
+          "lon": 1.909251
+        },
+        {
+          "Details": "English force under Sir\u00a0John Fastolf\u00a0defeats French and Scottish armies.",
+          "Location": " Rouvray",
+          "Name": "Battle of the Herrings",
+          "Number": 48,
+          "Unnamed: 0": 48,
+          "Victor": "England",
+          "Year": 1429,
+          "lat": 47.42401,
+          "lon": 4.102647
+        },
+        {
+          "Details": "12 June. French forces recaptured the neighboring district along the Loire river. The English suffered heavy losses.",
+          "Location": "Jargeau",
+          "Name": "Battle of Jargeau",
+          "Number": 49,
+          "Unnamed: 0": 49,
+          "Victor": "France",
+          "Year": 1429,
+          "lat": 47.866604,
+          "lon": 2.122264
+        },
+        {
+          "Details": NaN,
+          "Location": "Meung-sur-Loire",
+          "Name": "Battle of Meung-sur-Loire",
+          "Number": 50,
+          "Unnamed: 0": 50,
+          "Victor": "France",
+          "Year": 1429,
+          "lat": 47.827007,
+          "lon": 1.697432
+        },
+        {
+          "Details": "English surrendered the town.",
+          "Location": "Beaugency",
+          "Name": "Battle of Beaugency",
+          "Number": 51,
+          "Unnamed: 0": 51,
+          "Victor": "France",
+          "Year": 1429,
+          "lat": 47.778071,
+          "lon": 1.633523
+        },
+        {
+          "Details": "18 June, In a reverse of Agincourt/Cr\u00e9cy, a French army under\u00a0La Hire, Richemont,\u00a0Joan of Arc, and other commanders break through English archers under Lord Talbot and then pursue and mop up the other sections of the English army, killing or capturing about half (2,200) of their troops. The Earl of Shrewsbury (Talbot) and Hungerford are captured.",
+          "Location": "Patay",
+          "Name": "Battle of Patay",
+          "Number": 52,
+          "Unnamed: 0": 52,
+          "Victor": "France",
+          "Year": 1429,
+          "lat": 48.04798,
+          "lon": 1.694368
+        },
+        {
+          "Details": "La Hire defeats an English force under Arundel.",
+          "Location": "Gerbevoy",
+          "Name": "Battle of Gerbevoy",
+          "Number": 53,
+          "Unnamed: 0": 53,
+          "Victor": "France",
+          "Year": 1435,
+          "lat": 49.534236,
+          "lon": 1.850054
+        },
+        {
+          "Details": "29 October, Rouen is regained from the English by a Brittany-French force.",
+          "Location": "Rouen",
+          "Name": "Battle of Rouen",
+          "Number": 54,
+          "Unnamed: 0": 54,
+          "Victor": "France",
+          "Year": 1449,
+          "lat": 49.443232,
+          "lon": 1.099971
+        },
+        {
+          "Details": "A French force under the duke of Bourbon and Richemont defeats an English force under\u00a0Thomas Kyriell. 3,774 English deaths and 1,500 captured. Thomas Kyriel, the English general, was captured in action.",
+          "Location": "Formigny",
+          "Name": "Battle of Formigny",
+          "Number": 55,
+          "Unnamed: 0": 55,
+          "Victor": "France",
+          "Year": 1450,
+          "lat": 49.340676,
+          "lon": -0.893701
+        },
+        {
+          "Details": "A French army, under\u00a0Jean Bureau, defeats an English army under John Talbot to end the Hundred Years' War. This was also the first battle in European history where the use of cannon was a major factor in determining the victor. John Talbot was killed in action. 4,000 English killed in this battle.",
+          "Location": "Castillon-la-Bataille",
+          "Name": "Battle of Castillon",
+          "Number": 56,
+          "Unnamed: 0": 56,
+          "Victor": "France",
+          "Year": 1453,
+          "lat": 44.852067,
+          "lon": -0.043008
+        }
+      ],
+      "getFillColor": [
+        180,
+        0,
+        200,
+        140
+      ],
+      "getPosition": "@@=[lon, lat]",
+      "getRadius": 8500,
+      "id": "594faa20-dfa3-4ce9-841c-ccd4cb1cf4d7",
+      "pickable": true
+    }
+  ],
+  "mapProvider": "carto",
+  "mapStyle": "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
+  "views": [
+    {
+      "@@type": "MapView",
+      "controller": true
+    }
+  ]
+};
+    const tooltip = true;
+    const customLibraries = null;
+    const configuration = null;
+
+    const deckInstance = createDeck({
+                  container,
+      jsonInput,
+      tooltip,
+      customLibraries,
+      configuration
+    });
+
+  </script>
+</html>
